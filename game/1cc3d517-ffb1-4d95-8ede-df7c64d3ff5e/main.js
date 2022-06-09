@@ -23,6 +23,7 @@ const gameHeight = 1080;
 const gameScale = 1;
 let input_count = 0;
 let display_count = 0;
+let game_is_over = false;
 
 const GAME_CONSTANT = {
     images: {
@@ -41,7 +42,10 @@ const GAME_CONSTANT = {
 const ERROR_MESSAGE = '';
 const CORRECT_MESSAGE = '';
 
-let name_, age, grade, favourite;
+let name_ = '',
+    age = '',
+    grade = '',
+    favourite = '';
 
 let name_blockly = 'Jhon doe';
 let age_blockly = '40 years old';
@@ -66,7 +70,6 @@ var config = {
     height: gameHeight,
     backgroundColor: "#eeeeee",
     parent: "sprite-container",
-    //canvas: canvas1,
     canvasStyle: `width: 100%;
     object-fit: revert;
     aspect-ratio: 738 / 436;`,
@@ -191,6 +194,9 @@ async function display_details() {
         // display_detail(age);
         // display_detail(grade);
         // display_detail(favourite);
+        if (name_ !== null && age !== null && grade !== null && favourite !== null) {
+            setTimeout(() => { game_is_over = true; }, 5000);
+        }
         resolve()
     });
 }
@@ -319,6 +325,7 @@ function Start_Game() {
 // Re-initialize the game variables
 function reInitValues() {
     var CanClick = true;
+    game_is_over = false;
     robottext.setVisible(false);
     robotspeech.setVisible(false);
     Middletext.setVisible(false);
@@ -380,17 +387,17 @@ function myUpdateFunction(a) {
 }
 // demoWorkspace.addChangeListener(myUpdateFunction);
 
+function completedFlag() {
+    return game_is_over;
+}
+
 function getNoOfBlocks() {
     demoWorkspace = Blockly.getMainWorkspace();
     noOfBlocks = demoWorkspace.getAllBlocks();
     return noOfBlocks.length
 }
 
-const updateImports = ["from clever_crow import *", "from time import sleep"]
-
-function completedFlag() {
-    return GameIsOver;
-}
+const updateImports = ["from bot import *", "from time import *"]
 
 export {
     completedFlag,
