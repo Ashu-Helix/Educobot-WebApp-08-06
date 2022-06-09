@@ -111,7 +111,7 @@ function loadAgain() {
         title: 'Task',
         arrow: true,
         // text: image_scaler("Task.png"),
-        text: "Scroll Images here",
+        text: tut[10],
         buttons: [{
             action() { return this.back(); },
             classes: 'shepherd-button-secondary', text: 'Back'
@@ -354,7 +354,7 @@ function loadAgain() {
     tour.addStep({
         eval() { return step4_2_val() },
         title: 'Step 9',
-        text: tut[9] + hint_maker("animal_farm.png", "amber_ref", "Show Ready Reference"),
+        text: tut[8] + hint_maker("animal_farm.png", "amber_ref", "Show Ready Reference"),
         arrow: true,
         // attachTo: { element: '.injectionDiv', on: adapt_orientation('bottom', 'right') },
         attachTo: { element: '#sprite-container', on: adapt_orientation('bottom', 'bottom') },
@@ -375,7 +375,7 @@ function loadAgain() {
     tour.addStep({
         eval() { return false },
         title: 'Nicee, Run it now!',
-        text: tut[10],
+        text: tut[9],
         arrow: true,
         attachTo: { element: '#sprite-container', on: adapt_orientation('bottom', 'bottom') },
         buttons: [{ action() { t8(); return this.back(); }, classes: 'shepherd-button-secondary', text: 'Back' }, { action() { return this.next(); }, text: 'Close' }],

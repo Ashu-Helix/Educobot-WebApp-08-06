@@ -26,7 +26,6 @@ import Icon_StarEmptyNew from "../assets/Icon_starEmptyNew";
 import Confetti from "react-confetti";
 import { unstable_useForkRef } from "@mui/utils";
 // import { turn } from "../../components/helpers/dog";
-import { fontWeight } from "@mui/system";
 import { useRouter } from "next/router";
 
 // ----------------------------------------------------------------------

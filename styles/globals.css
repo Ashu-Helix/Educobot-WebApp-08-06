@@ -87,7 +87,8 @@ svg>g>rect {
   margin: 5px;
 }
 
-.CodeMirror-gutters, .CodeMirror-linenumbers {
+.CodeMirror-gutters,
+.CodeMirror-linenumbers {
   background-color: transparent !important;
 }
 
@@ -96,7 +97,8 @@ code {
     monospace;
 }
 
-.CodeMirror-gutters, .CodeMirror-linenumbers {
+.CodeMirror-gutters,
+.CodeMirror-linenumbers {
   background-color: transparent !important;
 }
 
@@ -262,4 +264,14 @@ code {
   align-items: stretch;
   align-content: stretch;
 
+}
+
+#circle {
+  min-height: 50%;
+  margin-top: 1.3vh;
+  background-size: cover;
+  border-radius: 10px;
+  background: #212B36;
+  backdrop-filter: blur(0.5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }

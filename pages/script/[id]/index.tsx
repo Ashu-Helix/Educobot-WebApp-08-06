@@ -191,7 +191,7 @@ export default function Scripts(props) {
           className={styles.editor}
         />
 
-        <div id="circle" className={styles.canvas_for_script}>
+        <div id="" className={styles.canvas_for_script}>
           <div className={styles.neumorphic_button_container}>
             <button
               className={`${styles.neumorphic_button}  ${styles.tooltip}`}
