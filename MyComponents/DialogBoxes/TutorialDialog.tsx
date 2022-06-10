@@ -26,7 +26,6 @@ import Icon_StarEmptyNew from "../assets/Icon_starEmptyNew";
 import Confetti from "react-confetti";
 import { unstable_useForkRef } from "@mui/utils";
 // import { turn } from "../../components/helpers/dog";
-import { fontWeight } from "@mui/system";
 import { useRouter } from "next/router";
 
 // ----------------------------------------------------------------------
@@ -61,14 +60,16 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [marks, setMarks] = useState(0);
   const [userQuestionPaper, setuserQuestionPaper] = useState([]);
-  const [showError, setShowError] = useState(false);
+  // const [showError, setShowError] = useState(false);
   const router = useRouter();
   const [questionArray, setQuestionArray] = useState([]);
+  const [disabledBtn, setDisabledBtn] = useState(true);
   // let questionArray = require(`../../public/mcq/${slug}Mcq.js`).mcqArr;
 
   // console.log(questionArray)
   const previousQuestion = () => {
     if (questionIndex !== 0) {
+      setDisabledBtn(false);
       setQuestionIndex(questionIndex - 1);
     }
   };
@@ -76,9 +77,11 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
     if (questionIndex !== questionArray.length - 1) {
       if (userQuestionPaper[questionIndex] !== undefined) {
         setQuestionIndex(questionIndex + 1);
-      } else {
-        setShowError(true);
+        setDisabledBtn(true);
       }
+      // else {
+      //   setShowError(true);
+      // }
     }
   };
 
@@ -131,6 +134,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
     //   var result = userQuestionPaper.find((obj) => {
     //     return obj.id === questionIndex + 1;
     //   });
+    setDisabledBtn(false);
     const itemIndex = userQuestionPaper.findIndex(
       (obj) => obj.id === questionIndex + 1
     );
@@ -159,16 +163,16 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
     }
   };
 
-  const closeError = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
+  // const closeError = (
+  //   event?: React.SyntheticEvent | Event,
+  //   reason?: string
+  // ) => {
+  //   if (reason === "clickaway") {
+  //     return;
+  //   }
 
-    setShowError(false);
-  };
+  //   setShowError(false);
+  // };
   return (
     <>
       <div>
@@ -203,6 +207,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
               padding: "2rem",
               fontWeight: 600,
             }}
+            fontFamily={"Public Sans"}
           >
             {"Code written successfully"}
           </DialogTitle>
@@ -229,6 +234,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                 fontSize: "16px",
                 color: "#fff",
               }}
+              fontFamily={"Public Sans"}
             >
               {"Click below button to start test."}
             </Typography>
@@ -247,6 +253,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                 padding: "0.5rem 1.2rem",
                 borderRadius: "8px",
                 textTransform: "none",
+                fontFamily: "Public Sans"
               }}
               onClick={() => {
                 setOpen("first");
@@ -279,6 +286,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
               padding: "2rem",
               fontWeight: 600,
             }}
+            fontFamily={"Public Sans"}
             fontSize={18}
           >
             {"True or False?"}
@@ -345,6 +353,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                     borderRadius: "8px",
                     textTransform: "none",
                     color: "#fff",
+                    fontFamily: "Public Sans"
                   }}
                 >
                   Back
@@ -356,8 +365,10 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                     fontSize: "16px",
                     borderRadius: "8px",
                     textTransform: "none",
+                    fontFamily: "Public Sans"
                   }}
                   onClick={nextQuestion}
+                  disabled={disabledBtn}
                   autoFocus
                 >
                   Next
@@ -374,6 +385,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                     borderRadius: "8px",
                     textTransform: "none",
                     color: "#fff",
+                    fontFamily: "Public Sans"
                   }}
                 >
                   Back
@@ -385,12 +397,14 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                     fontSize: "16px",
                     borderRadius: "8px",
                     textTransform: "none",
+                    fontFamily: "Public Sans"
                   }}
                   onClick={() => {
                     evaluateTutorial();
                     setOpen("second");
                     setShowConfetti(true);
                   }}
+                  disabled={disabledBtn}
                   autoFocus
                 >
                   Save and Exit
@@ -408,6 +422,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
             style: {
               backgroundColor: "#212B36",
               padding: "0rem 2rem",
+              maxWidth: 450,
             },
           }}
         // onClose={handleClose}
@@ -420,6 +435,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
               padding: "2rem",
               fontWeight: 600,
             }}
+            fontFamily={"Public Sans"}
           >
             {"Code written successfully"}
           </DialogTitle>
@@ -452,6 +468,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                   fontSize: "18px",
                   fontWeight: 600,
                 }}
+                fontFamily={"Public Sans"}
               >
                 {`Coins earned`}
               </Typography>
@@ -481,6 +498,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                 fontSize: "16px",
                 color: "#fff",
               }}
+              fontFamily={"Public Sans"}
             >
               {
                 "With this lesson, you have learned the basics of <tag1>, <tag2> and <tag3>."
@@ -501,6 +519,7 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
                 padding: "0.5rem 1.2rem",
                 borderRadius: "8px",
                 textTransform: "none",
+                fontFamily: "Public Sans"
               }}
               onClick={() => {
                 router.push("http://localhost:3001/dashboard/app/");
@@ -522,14 +541,14 @@ export default function TestDialog({ getCoins, testDialogInfo, slug }: Props) {
         // tweenDuration={50000}
         />
       </div>
-      <Snackbar open={showError} autoHideDuration={6000} onClose={closeError} anchorOrigin={{
+      {/* <Snackbar open={showError} autoHideDuration={6000} onClose={closeError} anchorOrigin={{
         vertical: 'top',
         horizontal: 'center'
       }}>
         <Alert onClose={closeError} severity="error" sx={{ width: "100%" }}>
           please select answer before moving to next question.
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
     </>
   );
 }
@@ -547,13 +566,13 @@ const RadioComp = (props) => {
         value={true}
         sx={{ marginRight: 4 }}
         control={<Radio />}
-        label={props.currectQuestion.button_1_text ?? ""}
+        label={<Typography style={{ fontFamily: "Public Sans", fontSize: "14px" }}>{props.currectQuestion.button_1_text ?? ""}</Typography>}
       />
-      <FormControlLabel
+      < FormControlLabel
         value={false}
-        control={<Radio />}
-        label={props.currectQuestion.button_2_text ?? ""}
+        control={< Radio />}
+        label={<Typography style={{ fontFamily: "Public Sans", fontSize: "14px" }}>{props.currectQuestion.button_2_text ?? ""}</Typography>}
       />
-    </RadioGroup>
+    </RadioGroup >
   );
 };

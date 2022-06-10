@@ -29,7 +29,7 @@ function image_scaler_our_version(lesson_id, file, id, type) {
     } else if (type === 1) {
         return `<div class=""><img src = "` + "http://localhost:3003/img/Python_Tool_Tip.png" + `" class="responsive-img" alt = "hint here"><div style="width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><p style="font-size:1.5rem;color:#fff;line-height: 0.7cm;">${file}</p></div></div>`
     } else if (type === 4) {
-        return `<div class=""><img src = "` + "http://localhost:3003/img/Python_Turtle_Tool_Tip.png" + `" class="responsive-img" alt = "hint here"><div style="width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><p style="font-size:1.5rem;color:#fff;line-height: 0.7cm;">${file}</p></div></div>`
+        return `<div class=""><img src = "` + "http://localhost:3003/img/Python_Turtle_Tool_Tip.png" + `" class="responsive-img" alt = "hint here"><div style="width: 100%;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);"><p style="font-size:1.5rem;color:#fff;line-height: 0.7cm;padding:0.5rem;">${file}</p></div></div>`
     }
 }
 
@@ -53,7 +53,7 @@ function make_pred_guide(id, file, code, audio, lesson_id, type) {
         var file2 = `<p style='margin-right:0cm;margin-left:0cm;font-size:16px;font-family:"Calibri",sans-serif;margin:0cm;margin-top:12.0pt;margin-bottom:12.0pt;padding:2rem;'><span style="font-size: 24px; font-family: Calibri, sans-serif; color: rgb(239, 239, 239);">` + file + `</span></p>`;
         pred_guide.push({
             html: `<div id="` + id + `" class="modal-fixed-footer transparent">
-            <div id="` + id + `_content" class="modal-content center-align">` + image_scaler_our_version(lesson_id, file, id) + `</div>
+            <div id="` + id + `_content" class="modal-content center-align">` + image_scaler_our_version(lesson_id, file, id, type) + `</div>
             <div class="modal-footer transparent"><a class="modal-close waves-effect waves-gray btn-flat white-text understood-btn" onclick=" document.getElementById('modal').close();">Understood</a></div></div>`,
             shown: false,
             id: id,

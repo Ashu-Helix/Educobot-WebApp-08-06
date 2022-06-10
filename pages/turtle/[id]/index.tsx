@@ -230,7 +230,7 @@ export default function Scripts(props) {
                             />
                         </button>
                     </div>
-                    <div id="circle" className="center" />
+                    <div id="circle" className="center" style={{ aspectRatio: "2/1" }} />
                     <div id="output" className={styles.output_for_script} style={{ height: '37%' }} />
                     <dialog id="modal" />
                 </div>

@@ -15,7 +15,7 @@ import path from "path";
 import * as XLSX from "xlsx";
 import TestDialog from "../../../MyComponents/DialogBoxes/TutorialDialog";
 const Blocky = dynamic(import("../../../components/Blocky"), { ssr: false });
-import axios from 'axios';
+
 
 const Tour = dynamic(import("../../../components/Tour"), { ssr: false, });
 

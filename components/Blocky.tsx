@@ -24,6 +24,27 @@ export default function Blocky(props) {
   }
 
   const toolboxCategories = block.blocks
+  const mathBlock = {
+    kind: "CATEGORY",
+    contents: [{ kind: "BLOCK", blockxml: "", type: "math_number" },],
+    name: "Math",
+    colour: "%{BKY_LOOPS_HUE}",
+  };
+
+
+  if (!JSON.stringify(toolboxCategories.contents).includes(JSON.stringify(mathBlock))) {
+    console.log("Math Block doesn't exists");
+    toolboxCategories.contents.push(mathBlock)
+  }
+
+
+  //   {
+  //     kind: "CATEGORY",
+  //     contents: [{ kind: "BLOCK", blockxml: "", type: "math_number" },],
+  //     name: "Math",
+  //     colour: "%{BKY_LOOPS_HUE}",
+  // },
+
   const [setXml] = useState(null);
   const initialXml = '<xml xmlns="http://www.w3.org/1999/xhtml"></xml>';
 

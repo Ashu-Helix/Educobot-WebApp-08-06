@@ -42,6 +42,8 @@ function runIt(pythonCode, finalCode) {
     Sk.configure({ output: outf, read: builtinRead, __future__: Sk.python3, });
     (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'circle';
     var myPromise = Sk.misceval.asyncToPromise(function () {
+        Sk.TurtleGraphics.width = (document.getElementById('circle')?.clientWidth);
+        Sk.TurtleGraphics.height = (document.getElementById('circle')?.clientHeight + 50);
         return Sk.importMainWithBody("<stdin>", false, pythonCode, true);
     });
     myPromise.then(

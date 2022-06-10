@@ -259,4 +259,45 @@ var a = {
     "colour": "#D4AF37"
 }
 
-export const blocks = { kind: "categoryToolbox", "contents": [{ "kind": "CATEGORY", "contents": [{ "kind": "BLOCK", "blockxml": "", "type": "spritetouch__block" }], "name": "Events", "colour": "#FFFF00" }, { "kind": "CATEGORY", "contents": [{ "kind": "BLOCK", "blockxml": "", "type": "action_block" }, { "kind": "BLOCK", "blockxml": "", "type": "drink_block" }, { "kind": "BLOCK", "blockxml": "", "type": "wait_block" }], "name": "Actions", "colour": " #FFA500" }, { "kind": "CATEGORY", "contents": [{ "kind": "BLOCK", "blockxml": "", "type": "controls_if" }, { "kind": "BLOCK", "blockxml": "", "type": "logic_compare" }, { "kind": "BLOCK", "blockxml": "", "type": "logic_operation" }, { "kind": "BLOCK", "blockxml": "", "type": "logic_negate" }, { "kind": "BLOCK", "blockxml": "", "type": "logic_boolean" }], "name": "Conditons", "colour": "%{BKY_LOGIC_HUE}" }, { "kind": "CATEGORY", "contents": [{ "kind": "BLOCK", "blockxml": "", "type": "forever_repeat_block" }], "name": "Loops", "colour": "%{BKY_LOOPS_HUE}" }], "id": "toolbox", "style": "display: none", "colour": "#D4AF37" }
+export const blocks = {
+    kind: "categoryToolbox",
+    contents: [
+        {
+            kind: "CATEGORY",
+            contents: [{ kind: "BLOCK", blockxml: "", type: "spritetouch__block" },],
+            name: "Events",
+            colour: "#FFFF00",
+        },
+        {
+            kind: "CATEGORY",
+            contents: [
+                { kind: "BLOCK", blockxml: "", type: "action_block" },
+                { kind: "BLOCK", blockxml: "", type: "drink_block" },
+                { kind: "BLOCK", blockxml: "", type: "wait_block" },
+            ],
+            name: "Actions",
+            colour: " #FFA500",
+        },
+        {
+            kind: "CATEGORY",
+            contents: [
+                { kind: "BLOCK", blockxml: "", type: "controls_if" },
+                { kind: "BLOCK", blockxml: "", type: "logic_compare" },
+                { kind: "BLOCK", blockxml: "", type: "logic_operation" },
+                { kind: "BLOCK", blockxml: "", type: "logic_negate" },
+                { kind: "BLOCK", blockxml: "", type: "logic_boolean" },
+            ],
+            name: "Conditons",
+            colour: "%{BKY_LOGIC_HUE}",
+        },
+        {
+            kind: "CATEGORY",
+            contents: [{ kind: "BLOCK", blockxml: "", type: "forever_repeat_block" }],
+            name: "Loops",
+            colour: "%{BKY_LOOPS_HUE}",
+        },
+    ],
+    id: "toolbox",
+    style: "display: none",
+    colour: "#D4AF37",
+};
